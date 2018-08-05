@@ -94,7 +94,11 @@ Examples: `BUILDKITE_MESSAGE`, `MY_SECRET_KEY`, `MY_SPECIAL_BUT_PUBLIC_VALUE=kit
 
 Allows a user to be set, and override the USER entry in the Dockerfile. See https://docs.docker.com/engine/reference/run/#user for more details.
 
+If set to the special value `"automatic"`, it will use the numerical ID of the current linux user (usually that of the buildkite agent). This can be useful if the command will write files to the mounted read/write volume for the checked out git repo, because otherwise the written files will be owned by `root`, the docker container's default user.
+
 Example: `root`
+
+
 
 ### `additional_groups` (optional)
 

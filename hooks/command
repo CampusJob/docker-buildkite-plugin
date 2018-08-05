@@ -16,7 +16,14 @@ args=(
 )
 
 # Support docker run --user
-if [[ -n "${BUILDKITE_PLUGIN_DOCKER_USER:-}" ]] ; then
+if [[ "${BUILDKITE_PLUGIN_DOCKER_USER:-false}" = "automatic" ]] ; then
+  # Before each task step, get the current linux user
+  # so that it can be used as --user for Docker if required.
+  # This may be needed because b/c the main working directory is
+  # mounted as a docker volume and then on retries / doing git checkout it doesn't
+  # work properly. See https://github.com/buildkite/agent/issues/407
+  args+=("-u" "$(id -u)")
+elif [[ -n "${BUILDKITE_PLUGIN_DOCKER_USER:-}" ]] ; then
   args+=("-u" "${BUILDKITE_PLUGIN_DOCKER_USER:-}")
 fi
 
