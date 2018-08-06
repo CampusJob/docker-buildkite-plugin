@@ -142,6 +142,14 @@ Set the maximum amount of memory the container can use. See the [docker run --me
 
 Example: `500m`, `2.5g`
 
+### `ipc` (optional)
+
+Set the IPC settings for the Docker container.
+You will typically only need to use this flag to set `--ipc=host` when running some type of browser- or Electron-based process inside a Docker container&mdash;for example: Cypress tests, Selenium tests, VS Code, Slack, etc.
+The full Docker documentation can be found [here](https://docs.docker.com/engine/reference/run/#ipc-settings---ipc), and a brief explanation from the Cypress team can be found at [this Github Issue](https://github.com/cypress-io/cypress/issues/350).
+
+Example: `host`
+
 ## License
 
 MIT (see [LICENSE](LICENSE))

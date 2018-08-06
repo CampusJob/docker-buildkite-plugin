@@ -33,6 +33,8 @@ configuration:
       type: string
     memory:
       type: string
+    ipc:
+      type: string
   required:
     - image
   additionalProperties: false

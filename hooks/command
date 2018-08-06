@@ -90,6 +90,11 @@ if [[ -n "${BUILDKITE_PLUGIN_DOCKER_MEMORY:-}" ]] ; then
   args+=("--memory=${BUILDKITE_PLUGIN_DOCKER_MEMORY}")
 fi
 
+# Support docker run --ipc
+if [[ -n "${BUILDKITE_PLUGIN_DOCKER_IPC:-}" ]] ; then
+  args+=("--ipc=${BUILDKITE_PLUGIN_DOCKER_IPC}")
+fi
+
 # Support docker run --entrypoint
 if [[ -n "${BUILDKITE_PLUGIN_DOCKER_ENTRYPOINT:-}" ]] ; then
   args+=("--entrypoint" "${BUILDKITE_PLUGIN_DOCKER_ENTRYPOINT:-}")
