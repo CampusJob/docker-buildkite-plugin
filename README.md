@@ -136,6 +136,12 @@ Override the image’s default entrypoint, and defaults the `shell` option to `f
 
 Example: `/my/custom/entrypoint.sh`
 
+### `memory` (optional)
+
+Set the maximum amount of memory the container can use. See the [docker run --memory documentation](https://docs.docker.com/config/containers/resource_constraints/#limit-a-containers-access-to-memory) for more details.
+
+Example: `500m`, `2.5g`
+
 ## License
 
 MIT (see [LICENSE](LICENSE))

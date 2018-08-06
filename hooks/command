@@ -85,6 +85,11 @@ if [[ -n "${BUILDKITE_PLUGIN_DOCKER_RUNTIME:-}" ]] ; then
   args+=("--runtime" "${BUILDKITE_PLUGIN_DOCKER_RUNTIME:-}")
 fi
 
+# Support docker run --memory
+if [[ -n "${BUILDKITE_PLUGIN_DOCKER_MEMORY:-}" ]] ; then
+  args+=("--memory=${BUILDKITE_PLUGIN_DOCKER_MEMORY}")
+fi
+
 # Support docker run --entrypoint
 if [[ -n "${BUILDKITE_PLUGIN_DOCKER_ENTRYPOINT:-}" ]] ; then
   args+=("--entrypoint" "${BUILDKITE_PLUGIN_DOCKER_ENTRYPOINT:-}")
